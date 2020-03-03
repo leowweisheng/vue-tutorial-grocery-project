@@ -1,4 +1,4 @@
-# groceryproject
+# grocery project
 
 ## Project setup
 ```
