@@ -1,4 +1,4 @@
-*<template>
+<template>
 	<div>
 		<ul>
 			<li v-for="item in itemsList" v-bind:key="item.name" >
@@ -21,7 +21,7 @@ export default {
 			{name:'Jam',image:'/assets/jam.jfif',show:false},
 			{name:'CornFlakes',image:'/assets/cornflakes.jfif',show:false},
 			{name:'Milk',image:'/assets/milk.jfif',show:false},
-			{name:'Juice',image:'/assets/juice.jfif',show:false}]
+			{name:'Tomato',image:'/assets/tomato.jfif',show:false}]
 		}
 	},
 	components:{
