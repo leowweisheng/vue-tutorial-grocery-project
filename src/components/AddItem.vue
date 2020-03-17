@@ -2,49 +2,61 @@
 	<div id=app>
 		<h1>Add Item Page</h1>
 		<form id="fm1">
-			<label>Item Name</label>
-			<input type="text"/>
 			<label>Item Category</label>
-			<input type="text"/>
-
+			<input type="text" v-model.lazy="item.category"/>
+			<label>Item Name</label>
+			<input type="text" v-model.lazy="item.name" required/>
+			<button v-on:click.prevent="addItem">Add Item</button>
 		</form>
 	</div>
 </template>
 
 <script>
+import database from '../firebase.js'
 export default {
-	data(){
-		return{
-			msg:"Add Item"
+	data() {
+		return {
+			msg: "Add Item",
+			item: {
+				category: '',
+				name: ''
+			},
 		}
-	}
-}
-</script>
+	},
+
+	methods: {
+		addItem: function () {
+        // Save item to database
+        database.collection('itemList').doc().set(this.item);
+        this.item.category = "";
+        this.item.name = ""; 
+      }
+    }
+  }
+  </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#app *{
+#app * {
 	box-sizing: border-box;
 }
-#app{
+#app {
 	margin: 20px auto;
 	max-width: 500px;
 }
-
-p{
+p {
 	align-content: center;
-	color:ivory;
+	color: ivory;
 }
-label{
+label {
 	display: inline-block;
 	margin: 20px 0 10px;
-	width:50%;
-	align-content:left;
-
+	width: 50%;
+	align-content: left;
 }
-input[type="text"]{
+input[type="text"] {
 	display: inline-block;
 	padding: 8px;
-	width:50%;
+	width: 50%;
 }
 </style>
