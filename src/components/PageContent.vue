@@ -43,7 +43,7 @@ export default {
 
 		deleteItem: function(index, item) {	
 			// Deleting from DB
-			database.collection('items').doc(item.id).delete()
+			database.collection('itemList').doc(item.id).delete()
 			// Deleting from the itemsList Array
 			this.itemsList.splice(index, 1)
 			// Msg to be displayed. Can be made as an alert
